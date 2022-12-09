@@ -1,11 +1,9 @@
 const router = require('express').Router();
 
-router.get('/', async (req, res) => {
-    try {
-        console.log(`${req.method} request received at /api`);
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
+const userRoutes = require('./userRoutes');
+const postRoutes = require('./postRoutes');
+
+router.use('/users', userRoutes);
+router.use('/posts', postRoutes);
 
 module.exports = router;
