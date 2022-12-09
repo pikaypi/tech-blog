@@ -6,7 +6,7 @@ const postData = [
         "text": "This is the first post on this site! Isn't that exciting?"
     },
     {
-        "user_id": 2,
+        "user_id": 3,
         "text": "Does anyone else love flying, or is it just me?"
     },
     {
