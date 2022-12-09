@@ -11,6 +11,16 @@ router.get('/', async (req, res) => {
     } catch (err) {
         res.status(500).json(err);
     }
-})
+});
+
+router.get('/posts/:id', async (req, res) => {
+    try {
+        const postData = await Post.findByPk(req.params.id);
+        const post = postData.get({ plain: true });
+        res.render('post', { post });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
 
 module.exports = router;
