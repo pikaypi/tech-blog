@@ -2,6 +2,12 @@ header, .project:not(:last-child) {
   border-bottom: 1px solid #ccc;
 }
 
+
+
+.small {
+    font-size: small;
+}
+
 .no-button {
   background: none;
   border: none;
