@@ -2,10 +2,55 @@ header, .project:not(:last-child) {
   border-bottom: 1px solid #ccc;
 }
 
-
-
 .small {
     font-size: small;
+}
+
+.post-card {
+    margin: 10px;
+    border: solid black 1px;
+    border-radius: 0.35rem;
+    padding-left: 10px;
+    box-shadow: 10px 5px 5px #ccc;
+}
+
+.btn {
+    cursor: pointer;
+}
+
+.edit-btn {
+    height: fit-content;
+    margin: 5px;
+    background-color: #5bc0de;
+}
+
+.editor-container {
+    border: solid black 1px;
+    border-radius: .35rem;
+    height: fit-content;
+}
+
+.form-textarea {
+    width: 100%;
+    min-height: 8rem;
+}
+
+.cancel-btn {
+    background-color: red;
+    color: white;
+}
+
+.message-type {
+    color: blue;
+}
+
+.editor-button-group button {
+    margin-right: 10px;
+}
+
+.submit-edit-btn {
+    background-color: #eaaa00;
+    margin-right: 10px;
 }
 
 .no-button {
