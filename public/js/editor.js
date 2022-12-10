@@ -101,3 +101,26 @@ const cancelButtonHandler = (event) => {
     event.preventDefault();
     renderNewPostForm();
 };
+
+// Form handler to submit a new post to the database
+const submitNewHandler = async (event) => {
+    // Create an object to pass as the API req.body
+    const newPost = {
+        user_id: event.target.getAttribute('data-user-id'),
+        title: titleEl.value.trim(),
+        text: messageEl.value.trim()
+    }
+
+    // POST request to the server
+    const response = await fetch('/api/posts', {
+        method: 'POST',
+        body: JSON.stringify(newPost),
+        headers: { 'Content-Type': 'application/json' }
+    });
+
+    if (response.ok) {
+        renderNewPostForm();
+    } else {
+        alert(response.statusText);
+    }
+}
