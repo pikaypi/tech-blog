@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-6" id="post-container">
         <h2 class="text-center mb-5">Posts by {{username}}</h2>
         {{#each posts as |post| }}
         {{> dashboard-post}}
@@ -8,7 +8,7 @@
     <div class="col-md-6 editor-container">
         <h2 class="text-center">Post Editor</h2>
         <h4 class="text-center message-type" id="message-type">New Post</h4>
-        <form class="form message-form" id="message-form" data-id="{{id}}">
+        <form class="form message-form" id="message-form" data-user-id="{{user_id}}">
             <div class="form-group">
                 <label for="title">title:</label>
                 <input class="form-input" type="text" id="title" />
@@ -17,8 +17,7 @@
                 <label for="message">message:</label>
                 <textarea class="form-textarea form-input" type="text" id="message"></textarea>
             </div>
-            <div class="form-group justify-space-between" id="editor-button-group">
-                <button class="btn btn-primary" data-user-id="{{user_id}}" type="submit">submit</button>
+            <div class="form-group justify-space-around" id="editor-button-group">
             </div>
         </form>
     </div>
