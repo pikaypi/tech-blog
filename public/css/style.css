@@ -10,8 +10,27 @@ header, .project:not(:last-child) {
     margin: 10px;
     border: solid black 1px;
     border-radius: 0.35rem;
-    padding-left: 10px;
+    padding: 10px;
     box-shadow: 10px 5px 5px #ccc;
+}
+
+.dash-post-card {
+    padding-left: 10px;
+}
+
+.home-post-card {
+    width: 300px;
+    height: 300px;
+    position: relative;
+}
+
+.to-bottom {
+    position: absolute;
+    bottom: 0px;
+}
+
+.post-card article {
+    border-top: solid #5bc0de 1px;
 }
 
 .btn {
@@ -74,10 +93,4 @@ header, .project:not(:last-child) {
 .no-button:hover {
   color: #065b83;
   text-decoration: underline;
-}
-
-.dollar-amount {
-  color: #056605;
-  font-weight: bold;
-  margin-left: -5px;
 }
