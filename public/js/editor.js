@@ -153,3 +153,22 @@ const submitEditHandler = async (event) => {
         alert(response.statusText);
     }
 }
+
+// Form handler to delete a post from the database
+const deletePostHandler = async (event) => {
+    // Collect the post_id stored in the form element's dataset
+    const post_id = event.target.getAttribute('data-post-id');
+    console.log('post_id:', post_id);
+    // DELETE request to the server to delete the post from the database
+    const response = await fetch(`/api/posts/${post_id}`, {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' }
+    })
+
+    if (response.ok) {
+        renderNewPostForm();
+        document.location.reload();
+    } else {
+        alert(response.statusText);
+    }
+}
