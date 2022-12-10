@@ -9,8 +9,6 @@ const seed = async () => {
     await seedUsers();
     await seedPosts();
     await seedComments();
-
-    process.exit(0);
 };
 
-seed();
+module.exports = seed;
