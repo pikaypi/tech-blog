@@ -35,11 +35,6 @@ header, .project:not(:last-child) {
     min-height: 8rem;
 }
 
-.cancel-btn {
-    background-color: red;
-    color: white;
-}
-
 .message-type {
     color: blue;
 }
@@ -51,6 +46,18 @@ header, .project:not(:last-child) {
 .submit-edit-btn {
     background-color: #eaaa00;
     margin-right: 10px;
+}
+
+.cancel-btn {
+    background-color: white;
+    border: solid gray 1px;
+    color: red;
+    margin-right: 10px;
+}
+
+.delete-btn {
+    background-color: red;
+    color: white;
 }
 
 .no-button {
