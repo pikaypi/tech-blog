@@ -5,7 +5,12 @@ const withAuth = require('../utils/auth');
 // GET route to render the homepage
 router.get('/', async (req, res) => {
     try {
-        const postData = await Post.findAll();
+        const postData = await Post.findAll({
+            include: {
+                model: User,
+                attributes: ['id', 'username']
+            }
+        });
 
         const posts = postData.map((post) => post.get({ plain: true }));
 
