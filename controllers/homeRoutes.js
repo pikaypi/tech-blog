@@ -25,6 +25,18 @@ router.get('/login', (req, res) => {
     }
 });
 
+// GET route to render the dashboard
+router.get('/dashboard', withAuth, async (req, res) => {
+    try {
+        const userData = await User.findByPk(req.session.user_id, { include: { model: Post } });
+        const user = userData.get({ plain: true });
+
+        res.render('dashboard', { ...user, logged_in: req.session.logged_in, user_id: req.session.user_id })
+    } catch (err) {
+        res.status(400).json(err)
+    }
+});
+
 // GET route to render the page for a single post
 router.get('/posts/:id', withAuth, async (req, res) => {
     try {
