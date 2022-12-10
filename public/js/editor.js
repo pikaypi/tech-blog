@@ -96,6 +96,7 @@ const editPostButtonHandler = async (event) => {
     renderEditPostForm(post_id);
 };
 
+// Button handler to reset the form while editing a post
 const cancelButtonHandler = (event) => {
     event.preventDefault();
     renderNewPostForm();
