@@ -124,3 +124,32 @@ const submitNewHandler = async (event) => {
         alert(response.statusText);
     }
 }
+
+// Form handler to submit edits to an existing post
+const submitEditHandler = async (event) => {
+    // Unlike submitting a new post, the dashboard does not need  
+    // to reload to properly display when a post is edited 
+    event.preventDefault();
+
+    // Collect the post_id stored in the form element's dataset
+    const post_id = event.target.getAttribute('data-post-id');
+
+    // Create an object to pass the new values into the API request body
+    const postData = {
+        title: titleEl.value.trim(),
+        text: messageEl.value.trim()
+    }
+
+    // PUT request to the server to add the post to the database
+    const response = await fetch(`/api/posts/${post_id}`, {
+        method: 'PUT',
+        body: JSON.stringify(postData),
+        headers: { 'Content-Type': 'application/json' }
+    })
+
+    if (response.ok) {
+        renderNewPostForm();
+    } else {
+        alert(response.statusText);
+    }
+}
