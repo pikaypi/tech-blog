@@ -28,6 +28,7 @@ header, .project:not(:last-child) {
     border: solid black 1px;
     border-radius: .35rem;
     height: fit-content;
+    box-shadow: 10px 5px 5px #ccc;
 }
 
 .form-textarea {
