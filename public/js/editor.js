@@ -178,5 +178,12 @@ for (let i = 0; i < editButtons.length; i++) {
     editButtons[i].addEventListener('click', editPostButtonHandler);
 }
 
+messageEl.addEventListener('keydown', function (e) {
+    if (e.code === 13) {
+        e.preventDefault();
+        return false;
+    }
+})
+
 // By default, the editor will load to the new post setting
 renderNewPostForm();
