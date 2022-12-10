@@ -32,7 +32,7 @@ const renderNewPostForm = () => {
     // Replace the submit edit handler with the submit new handler
     formEl.removeEventListener('submit', submitEditHandler);
     formEl.addEventListener('submit', submitNewHandler);
-}
+};
 
 // Creates and renders the buttons for editing an existing post
 const renderEditPostForm = (post_id) => {
@@ -77,4 +77,26 @@ const renderEditPostForm = (post_id) => {
     // Add cancel and delete button event listeners
     cancelBtn.addEventListener('click', cancelButtonHandler);
     deleteBtn.addEventListener('click', deletePostHandler);
-}
+};
+
+// Button handler to load a post into the post editor
+const editPostButtonHandler = async (event) => {
+    // Get the id of the post from the html element
+    const post_id = event.target.getAttribute('data-post-id');
+
+    // Call the API and store the post data in an object
+    const postData = await fetch(`/api/posts/${post_id}`, {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' }
+    }).then((res) => res.json());
+
+    // Render the edit post form
+    titleEl.value = postData.title
+    messageEl.value = postData.text
+    renderEditPostForm(post_id);
+};
+
+const cancelButtonHandler = (event) => {
+    event.preventDefault();
+    renderNewPostForm();
+};
