@@ -59,9 +59,9 @@ const renderEditPostForm = (post_id) => {
     // Create delete button
     const deleteBtn = document.createElement('button');
     deleteBtn.setAttribute('id', 'delete-btn');
-    deleteBtn.setAttribute('data-post-id', `${post_id}`)
+    deleteBtn.setAttribute('data-post-id', `${post_id}`);
     deleteBtn.classList.add('btn', 'delete-btn');
-    deleteBtn.innerHTML = 'delete'
+    deleteBtn.innerHTML = 'delete';
 
     // Append the new buttons to the button group
     buttonGroupEl.append(submitEditBtn);
@@ -109,7 +109,7 @@ const submitNewHandler = async (event) => {
         user_id: event.target.getAttribute('data-user-id'),
         title: titleEl.value.trim(),
         text: messageEl.value.trim()
-    }
+    };
 
     // POST request to the server
     const response = await fetch('/api/posts', {
@@ -123,7 +123,7 @@ const submitNewHandler = async (event) => {
     } else {
         alert(response.statusText);
     }
-}
+};
 
 // Form handler to submit edits to an existing post
 const submitEditHandler = async (event) => {
@@ -138,21 +138,21 @@ const submitEditHandler = async (event) => {
     const postData = {
         title: titleEl.value.trim(),
         text: messageEl.value.trim()
-    }
+    };
 
     // PUT request to the server to add the post to the database
     const response = await fetch(`/api/posts/${post_id}`, {
         method: 'PUT',
         body: JSON.stringify(postData),
         headers: { 'Content-Type': 'application/json' }
-    })
+    });
 
     if (response.ok) {
         renderNewPostForm();
     } else {
         alert(response.statusText);
     }
-}
+};
 
 // Form handler to delete a post from the database
 const deletePostHandler = async (event) => {
@@ -163,7 +163,7 @@ const deletePostHandler = async (event) => {
     const response = await fetch(`/api/posts/${post_id}`, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' }
-    })
+    });
 
     if (response.ok) {
         renderNewPostForm();
@@ -171,4 +171,12 @@ const deletePostHandler = async (event) => {
     } else {
         alert(response.statusText);
     }
+};
+
+const editButtons = document.getElementsByClassName('edit-btn');
+for (let i = 0; i < editButtons.length; i++) {
+    editButtons[i].addEventListener('click', editPostButtonHandler);
 }
+
+// By default, the editor will load to the new post setting
+renderNewPostForm();
