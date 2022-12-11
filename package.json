@@ -23,7 +23,7 @@
   "bugs": {
     "url": "https://github.com/pikaypi/tech-blog/issues"
   },
-  "homepage": "tech-blog-by-paul.herokuapp.com",
+  "homepage": "https://tech-blog-by-paul.herokuapp.com",
   "dependencies": {
     "bcrypt": "^5.1.0",
     "connect-session-sequelize": "^7.1.5",
