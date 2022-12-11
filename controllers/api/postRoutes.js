@@ -52,7 +52,7 @@ router.get('/:id', async (req, res) => {
     } catch (err) {
         res.status(500).json(err);
     }
-})
+});
 
 // POST route to create a new post
 router.post('/', async (req, res) => {
@@ -62,7 +62,7 @@ router.post('/', async (req, res) => {
     } catch (err) {
         res.status(500).json(err);
     }
-})
+});
 
 // PUT route to edit an existing post
 router.put('/:id', async (req, res) => {
@@ -72,7 +72,7 @@ router.put('/:id', async (req, res) => {
     } catch (err) {
         res.status(500).json(err)
     }
-})
+});
 
 // DELETE route to delete an existing post
 router.delete('/:id', async (req, res) => {
@@ -82,6 +82,19 @@ router.delete('/:id', async (req, res) => {
     } catch (err) {
         res.status(500).json(err)
     }
-})
+});
+
+// POST route to create a new comment
+router.post('/:id', async (req, res) => {
+    try {
+        const newComment = await Comment.create({
+            ...req.body, 
+            post_id: req.params.id
+        });
+        res.status(200).json(newComment);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
 
 module.exports = router;
