@@ -44,10 +44,13 @@ header, .project:not(:last-child) {
 }
 
 .editor-container {
+    margin-top: 10px;
     border: solid black 1px;
     border-radius: .35rem;
     height: fit-content;
     box-shadow: 10px 5px 5px #ccc;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .form-textarea {
@@ -80,6 +83,30 @@ header, .project:not(:last-child) {
     color: white;
 }
 
+.display-post {
+    position: relative;
+    min-height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.display-post article {
+    border-top: solid #5bc0de 1px;
+}
+
+.small-comment {
+    margin-bottom: 0px;
+}
+
+.comment-btn-group {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-input {
+    box-shadow: 1px 1px 1px 1px #ddd inset;
+}
+
 .no-button {
   background: none;
   border: none;
@@ -93,4 +120,14 @@ header, .project:not(:last-child) {
 .no-button:hover {
   color: #065b83;
   text-decoration: underline;
+}
+
+@media screen and (min-width: 768px) {
+    .display-post {
+        width: 50%;
+    }
+
+    .login-form, .signup-form {
+        width: 80%;
+    }
 }

@@ -1,12 +1,34 @@
-<div class="text-center">
-    <h2>{{title}}</h2>
-    <p class="small">Created by {{user.username}} on {{format_date createdAt}}</p>
-    <p>{{text}}</p>
-    <button class="btn btn-primary">Leave a comment!</button>
-</div>
-<div>
-    {{#each comments as |comment| }}
+<section class="post-card display-post">
+    <div>
+        <h2 class="text-center">{{title}}</h2>
+        <p class="small text-center">Created by {{user.username}} on {{format_date createdAt}}</p>
+    </div>
+    <article>
+        <p>{{text}}</p>
+        <p class="small to-bottom">Last edited on: {{format_date updatedAt}}</p>
+    </article>
+</section>
+<section class="row comment-section">
+    <div class="col-md-6">
+        <h2 class="text-center">Comments</h2>
+        {{#each comments as |comment| }}
         {{> comment-details}}
-    {{/each}}
-</div>
-        
+        {{/each}}
+    </div>
+    <div class="col-md-6">
+        <div class="editor-container">
+            <h2 class="text-center">Leave a Comment</h2>
+            <form class="form comment-form" id="comment-form" data-user-id="{{user_id}}" data-post-id="{{id}}">
+                <div class="form-group">
+                    <label for="comment">comment:</label>
+                    <textarea class="form-textarea form-input" type="text" id="comment" required></textarea>
+                </div>
+                <div class="form-group comment-btn-group" id="button-group">
+                    <button class="btn comment-btn" type="submit">comment</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<script src="/js/post.js"></script>
